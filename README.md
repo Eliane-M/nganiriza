@@ -12,35 +12,33 @@ This project demonstrates the deployment of a machine learning model through a F
 
 ## Project Structure
 
+```
 nganiriza/
 │
 ├── README.md
 │
 ├── notebook/
-│   └── Nganiriza.ipynb
+│    └── Nganiriza.ipynb
 │
 ├── src/
-│   ├── api/
-|   ├── preprocessing.py
-│   ├── model.py
-│   └── prediction.py
+│    ├── api/
+│    ├── preprocessing.py
+│    ├── model.py
+│    └── prediction.py
 │
 ├── data/
-│   ├── train/
-│   └── test/
+│    ├── train/
+│    └── test/
 │
-└── models/
-|    ├── nn_model_5.h5
-|    ├── static/
-|    └── uploads/
-|
-|
-|__ app.py                        # Contains the endpoints
-|
-|
-|
-|__ nganiriza_frontend            # The react app for the frontend
-
+├── models/
+│    ├── nn_model_5.h5
+│    ├── static/
+│    └── uploads/
+│
+├── app.py                  # Contains the endpoints
+│
+└── nganiriza_frontend      # The react app for the frontend
+```
 
 
 ## Setup and Installation
