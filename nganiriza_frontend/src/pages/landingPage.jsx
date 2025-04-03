@@ -1,6 +1,10 @@
 import React from 'react';
 import '../assets/css/landingPage/landing.css';
 import { Link } from 'react-router-dom';
+import myImage from '../assets/images/hero-section.jpg'
+
+
+document.documentElement.style.setProperty('--hero-image', `url(${myImage})`);
 
 const NganirizaLandingPage = () => {
   return (
