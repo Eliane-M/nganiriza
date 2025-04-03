@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/css/visualizations/visualizations.scss';
+import '../assets/css/visualizationsPage/visualizationsPage.css';
 
 const VisualizationsPage = () => {
   const [visualizations, setVisualizations] = useState({
@@ -61,10 +61,10 @@ const VisualizationsPage = () => {
       <header className="header">
         <h1><a href="/">NGANIRIZA</a></h1>
         <nav>
-          <Link to="/user-info" className="nav-link">Predictions</Link>
-          <Link to="/visualizations" className="nav-link">Visualizations</Link>
-          <Link to="/data-upload" className="nav-link">Data Upload</Link>
-          <Link to="/retraining" className="nav-link">Retrain</Link>
+            <Link to="/user-info" className="nav-link">Predictions</Link>
+            <Link to="/visualizations" className="nav-link">Visualizations</Link>
+            <Link to="/data-upload" className="nav-link">Data Upload</Link>
+            <Link to="/retraining" className="nav-link">Retrain</Link>
         </nav>
       </header>
 

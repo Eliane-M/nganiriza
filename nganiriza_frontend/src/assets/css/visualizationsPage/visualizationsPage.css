@@ -5,31 +5,45 @@
   padding: 20px;
 }
 .visualizations-container .header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
+  padding: 15px 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  color: black;
 }
 .visualizations-container .header h1 {
-  margin: 0;
-  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 .visualizations-container .header h1 a {
+  color: black;
   text-decoration: none;
-  color: #333;
+  transition: color 0.3s ease-in-out;
 }
-.visualizations-container .header nav .nav-link {
-  margin-left: 20px;
+.visualizations-container .header h1 a:hover {
+  color: #AD49E1;
+}
+.visualizations-container .header nav {
+  display: flex;
+  gap: 20px;
+  padding-inline-end: 3rem;
+}
+.visualizations-container .header nav a {
+  color: black;
   text-decoration: none;
-  color: #007bff;
-  font-weight: 500;
+  font-size: 1.2rem;
+  transition: color 0.3s ease-in-out;
 }
-.visualizations-container .header nav .nav-link:hover {
-  text-decoration: underline;
+.visualizations-container .header nav a:hover {
+  color: #662b86;
 }
 .visualizations-container .visualizations-wrapper {
-  margin-top: 20px;
+  margin-top: 10rem;
   text-align: center;
 }
 .visualizations-container .visualizations-wrapper h2 {
@@ -49,21 +63,21 @@
   margin: 0 10px;
   font-size: 16px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #AD49E1;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 .visualizations-container .visualizations-wrapper .button-group button:hover {
-  background-color: #0056b3;
+  background-color: #6c2e8e;
 }
 .visualizations-container .visualizations-wrapper .button-group button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 .visualizations-container .visualizations-wrapper .error-message {
-  color: #d9534f;
+  color: red;
   font-size: 16px;
   margin-bottom: 20px;
 }
