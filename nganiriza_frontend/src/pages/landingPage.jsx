@@ -14,13 +14,13 @@ const NganirizaLandingPage = () => {
         {/* Navigation */}
         <nav className="navbar">
           <div className="logo">NGANIRIZA</div>
-          <div className="nav-menu">
-            <a href="user-info" className="nav-link">Predictions</a>
-            {/* <a href="user-info" className="nav-link">About</a> */}
-            <a href="#" className="nav-link">Visualizations</a>
-            <a href="data-upload" className="nav-link">Data Upload</a>
-            <a href="retraining" className="nav-link">Retrain</a>
-          </div>
+          <nav className='nav-menu'>
+            <Link to="/user-info" className="nav-link">Predictions</Link>
+            {/* <Link to="/user-info" className="nav-link">About</Link> */}
+            <Link to="/visualizations" className="nav-link">Visualizations</Link>
+            <Link to="/data-upload" className="nav-link">Data Upload</Link>
+            <Link to="/retraining" className="nav-link">Retrain</Link>
+          </nav>
         </nav>
 
         {/* Hero Section */}

@@ -1,6 +1,7 @@
 // Retraining.jsx
 import React, { useState } from 'react';
 import '../assets/css/retraining/retrainingPage.css';
+import { Link } from 'react-router-dom';
 
 const Retraining = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -53,10 +54,11 @@ const Retraining = () => {
       <header className="header">
         <h1><a href='/'>NGANIRIZA</a></h1>
         <nav>
-          <a href="/user-info">Predictions</a>
-          <a href="/visualizations">Visualizations</a>
-          <a href="/data-upload">Data Upload</a>
-          <a href="/retraining">Retraining</a>
+            <Link to="/user-info" className="nav-link">Predictions</Link>
+            {/* <Link to="/user-info" className="nav-link">About</Link> */}
+            <Link to="/visualizations" className="nav-link">Visualizations</Link>
+            <Link to="/data-upload" className="nav-link">Data Upload</Link>
+            <Link to="/retraining" className="nav-link">Retrain</Link>
         </nav>
       </header>
 
