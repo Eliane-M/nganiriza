@@ -9,6 +9,7 @@ const VisualizationsPage = () => {
     income: { plot1: null, plot2: null },
     healthcare: { plot1: null, plot2: null },
   });
+  const [selectedPlotType, setSelectedPlotType] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -18,7 +19,7 @@ const VisualizationsPage = () => {
     setError(null);
 
     try {
-      const response = await fetch(`http://localhost:8000/visualizations/${plotType}`, {
+      const response = await fetch(`https://nganiriza.onrender.com/visualizations/${plotType}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -35,6 +36,7 @@ const VisualizationsPage = () => {
         ...prev,
         [plotType]: { plot1: data.plot1, plot2: data.plot2 },
       }));
+      setSelectedPlotType(plotType);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -42,18 +44,17 @@ const VisualizationsPage = () => {
     }
   };
 
-  // Load initial visualizations (optional: trigger on mount)
-  useEffect(() => {
-    // Uncomment to fetch all on page load
-    // fetchVisualizations('education');
-    // fetchVisualizations('contraceptive');
-    // fetchVisualizations('income');
-    // fetchVisualizations('healthcare');
-  }, []);
-
   // Handle button clicks to fetch specific visualizations
   const handleFetchVisualization = (plotType) => {
     fetchVisualizations(plotType);
+  };
+
+  // Map plot types to human-readable titles
+  const plotTitles = {
+    education: 'Education Level',
+    contraceptive: 'Contraceptive Use',
+    income: 'Family Income',
+    healthcare: 'Healthcare Access',
   };
 
   return (
@@ -61,10 +62,10 @@ const VisualizationsPage = () => {
       <header className="header">
         <h1><a href="/">NGANIRIZA</a></h1>
         <nav>
-            <Link to="/user-info" className="nav-link">Predictions</Link>
-            <Link to="/visualizations" className="nav-link">Visualizations</Link>
-            <Link to="/data-upload" className="nav-link">Data Upload</Link>
-            <Link to="/retraining" className="nav-link">Retrain</Link>
+          <Link to="/user-info" className="nav-link">Predictions</Link>
+          <Link to="/visualizations" className="nav-link">Visualizations</Link>
+          <Link to="/data-upload" className="nav-link">Data Upload</Link>
+          <Link to="/retraining" className="nav-link">Retrain</Link>
         </nav>
       </header>
 
@@ -77,82 +78,56 @@ const VisualizationsPage = () => {
             onClick={() => handleFetchVisualization('education')}
             disabled={loading}
           >
-            {loading ? 'Loading...' : 'Education Level'}
+            {loading && selectedPlotType === 'education' ? 'Loading...' : 'Education Level'}
           </button>
           <button
             onClick={() => handleFetchVisualization('contraceptive')}
             disabled={loading}
           >
-            {loading ? 'Loading...' : 'Contraceptive Use'}
+            {loading && selectedPlotType === 'contraceptive' ? 'Loading...' : 'Contraceptive Use'}
           </button>
           <button
             onClick={() => handleFetchVisualization('income')}
             disabled={loading}
           >
-            {loading ? 'Loading...' : 'Family Income'}
+            {loading && selectedPlotType === 'income' ? 'Loading...' : 'Family Income'}
           </button>
           <button
             onClick={() => handleFetchVisualization('healthcare')}
             disabled={loading}
           >
-            {loading ? 'Loading...' : 'Healthcare Access'}
+            {loading && selectedPlotType === 'healthcare' ? 'Loading...' : 'Healthcare Access'}
           </button>
         </div>
 
         {error && <p className="error-message">{error}</p>}
 
         <div className="visualizations-grid">
-          {/* Education Level Visualizations */}
-          <div className="visualization-section">
-            <h3>Education Level</h3>
-            {visualizations.education.plot1 ? (
-              <img src={visualizations.education.plot1} alt="Education Plot 1" />
-            ) : (
-              <p>No visualization available. Click the button to load.</p>
-            )}
-            {visualizations.education.plot2 && (
-              <img src={visualizations.education.plot2} alt="Education Plot 2" />
-            )}
-          </div>
-
-          {/* Contraceptive Use Visualizations */}
-          <div className="visualization-section">
-            <h3>Contraceptive Use</h3>
-            {visualizations.contraceptive.plot1 ? (
-              <img src={visualizations.contraceptive.plot1} alt="Contraceptive Plot 1" />
-            ) : (
-              <p>No visualization available. Click the button to load.</p>
-            )}
-            {visualizations.contraceptive.plot2 && (
-              <img src={visualizations.contraceptive.plot2} alt="Contraceptive Plot 2" />
-            )}
-          </div>
-
-          {/* Family Income Visualizations */}
-          <div className="visualization-section">
-            <h3>Family Income</h3>
-            {visualizations.income.plot1 ? (
-              <img src={visualizations.income.plot1} alt="Income Plot 1" />
-            ) : (
-              <p>No visualization available. Click the button to load.</p>
-            )}
-            {visualizations.income.plot2 && (
-              <img src={visualizations.income.plot2} alt="Income Plot 2" />
-            )}
-          </div>
-
-          {/* Healthcare Access Visualizations */}
-          <div className="visualization-section">
-            <h3>Healthcare Access</h3>
-            {visualizations.healthcare.plot1 ? (
-              <img src={visualizations.healthcare.plot1} alt="Healthcare Plot 1" />
-            ) : (
-              <p>No visualization available. Click the button to load.</p>
-            )}
-            {visualizations.healthcare.plot2 && (
-              <img src={visualizations.healthcare.plot2} alt="Healthcare Plot 2" />
-            )}
-          </div>
+          {selectedPlotType ? (
+            <div className="visualization-section">
+              <h3>{plotTitles[selectedPlotType]}</h3>
+              <div className="plots-container">
+                {visualizations[selectedPlotType].plot1 ? (
+                  <img
+                    src={visualizations[selectedPlotType].plot1}
+                    alt={`${plotTitles[selectedPlotType]} Plot 1`}
+                    className="plot-image"
+                  />
+                ) : (
+                  <p>No visualization available yet. Please wait...</p>
+                )}
+                {visualizations[selectedPlotType].plot2 ? (
+                  <img
+                    src={visualizations[selectedPlotType].plot2}
+                    alt={`${plotTitles[selectedPlotType]} Plot 2`}
+                    className="plot-image"
+                  />
+                ) : null}
+              </div>
+            </div>
+          ) : (
+            <p>Select a visualization type to view the data.</p>
+          )}
         </div>
       </div>
     </div>

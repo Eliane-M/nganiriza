@@ -1,11 +1,14 @@
 .visualizations-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: Arial, sans-serif;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10rem;
 }
 .visualizations-container .header {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,6 +35,8 @@
   display: flex;
   gap: 20px;
   padding-inline-end: 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 .visualizations-container .header nav a {
   color: black;
@@ -43,7 +48,7 @@
   color: #662b86;
 }
 .visualizations-container .visualizations-wrapper {
-  margin-top: 10rem;
+  margin-top: 20px;
   text-align: center;
 }
 .visualizations-container .visualizations-wrapper h2 {
@@ -70,39 +75,45 @@
   transition: background-color 0.3s;
 }
 .visualizations-container .visualizations-wrapper .button-group button:hover {
-  background-color: #6c2e8e;
+  background-color: #6d2e8e;
 }
 .visualizations-container .visualizations-wrapper .button-group button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 .visualizations-container .visualizations-wrapper .error-message {
-  color: red;
+  color: #d9534f;
   font-size: 16px;
   margin-bottom: 20px;
 }
 .visualizations-container .visualizations-wrapper .visualizations-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  display: flex;
+  justify-content: center;
 }
-.visualizations-container .visualizations-wrapper .visualizations-grid .visualization-section {
+.visualizations-container .visualizations-wrapper .visualization-section {
   background-color: #f9f9f9;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1000px;
 }
-.visualizations-container .visualizations-wrapper .visualizations-grid .visualization-section h3 {
+.visualizations-container .visualizations-wrapper .visualization-section h3 {
   font-size: 20px;
   color: #333;
   margin-bottom: 10px;
 }
-.visualizations-container .visualizations-wrapper .visualizations-grid .visualization-section img {
-  max-width: 100%;
+.visualizations-container .visualizations-wrapper .visualization-section .plots-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.visualizations-container .visualizations-wrapper .visualization-section .plot-image {
+  max-width: 48%;
   height: auto;
   border-radius: 5px;
 }
-.visualizations-container .visualizations-wrapper .visualizations-grid .visualization-section p {
+.visualizations-container .visualizations-wrapper .visualization-section p {
   font-size: 14px;
   color: #888;
 }/*# sourceMappingURL=visualizationsPage.css.map */

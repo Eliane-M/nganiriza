@@ -7,8 +7,8 @@ const UserInfoPage = () => {
     Age: '',
     Education_Level: '',
     Ubudehe_Category: '',
-    Family_Income_Range: '', // Store the selected range (e.g., "<1200000")
-    Family_Income_Rwf: '',  // Store the random number (e.g., 500000)
+    Family_Income_Range: '',
+    Family_Income_Rwf: '',
     Healthcare_Access_Score: '',
     Sexual_Education_Hours: '',
     Contraceptive_Use: '',
@@ -27,7 +27,7 @@ const UserInfoPage = () => {
       "<1200000": [0, 1199999],
       "1200000-3000000": [1200000, 3000000],
       "3000000-6000000": [3000000, 6000000],
-      ">6000000": [6000001, 10000000], // Assume max 10,000,000 for upper range
+      ">6000000": [6000001, 10000000],
     };
 
     const [min, max] = incomeRanges[range] || [0, 0];
@@ -75,7 +75,7 @@ const UserInfoPage = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:8000/predict', {
+      const response = await fetch('https://nganiriza.onrender.com/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
