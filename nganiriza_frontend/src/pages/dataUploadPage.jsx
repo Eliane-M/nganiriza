@@ -93,7 +93,6 @@ const DataUpload = () => {
           {selectedFile && (
             <p className="file-info">Selected File: {selectedFile.name}</p>
           )}
-          <button onClick={handleFileUpload}>Submit</button>
         </div>
       </main>
     </div>

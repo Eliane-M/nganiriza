@@ -1,0 +1,114 @@
+.visualizations-container {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+  
+      h1 {
+        margin: 0;
+        font-size: 24px;
+  
+        a {
+          text-decoration: none;
+          color: #333;
+        }
+      }
+  
+      nav {
+        .nav-link {
+          margin-left: 20px;
+          text-decoration: none;
+          color: #007bff;
+          font-weight: 500;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  
+    .visualizations-wrapper {
+      margin-top: 20px;
+      text-align: center;
+  
+      h2 {
+        font-size: 28px;
+        color: #333;
+      }
+  
+      p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+  
+      .button-group {
+        margin-bottom: 30px;
+  
+        button {
+          padding: 10px 20px;
+          margin: 0 10px;
+          font-size: 16px;
+          color: #fff;
+          background-color: #007bff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+  
+          &:hover {
+            background-color: #0056b3;
+          }
+  
+          &:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+          }
+        }
+      }
+  
+      .error-message {
+        color: #d9534f;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+  
+      .visualizations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+  
+        .visualization-section {
+          background-color: #f9f9f9;
+          padding: 15px;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+          h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+          }
+  
+          img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+          }
+  
+          p {
+            font-size: 14px;
+            color: #888;
+          }
+        }
+      }
+    }
+  }

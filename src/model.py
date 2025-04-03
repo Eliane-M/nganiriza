@@ -8,7 +8,7 @@ import os
 import pickle
 
 def define_model(input_dim, optimization='adam', regularization_type='l1_l2', 
-                 regularization_strength=0.01, early_stopping=True, learning_rate=0.001):
+                 regularization_strength=0.01, early_stopping=True, learning_rate=0.001, verbose=False):
     """
     Define a neural network classification model
     
@@ -58,10 +58,13 @@ def define_model(input_dim, optimization='adam', regularization_type='l1_l2',
     # Output layer with 3 neurons for multi-class classification
     model.add(Dense(3, activation='softmax'))
 
-    # Compile the model
-    model.compile(optimizer=optimization,
-                  loss='categorical_crossentropy',
-                  metrics=['accuracy'])
+    # Compile the model    
+    optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate) if optimization == 'adam' else optimization
+    model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+
+    # Print model summary if verbose is True
+    if verbose:
+        print(model.summary())
 
     # Define callbacks for early stopping if required
     callbacks = []
@@ -96,6 +99,8 @@ def train_model(X_train, y_train, X_val=None, y_val=None, model_path='../models/
         # Prepare validation data
         validation_data = None
         if X_val is not None and y_val is not None:
+            if X_val.shape[1] != X_train.shape[1] or y_val.shape[1] != y_train.shape[1]:
+                raise ValueError("Validation data dimensions do not match training data")
             validation_data = (X_val, y_val)
         
         # Train the model

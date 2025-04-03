@@ -6,6 +6,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 import pickle
 from typing import Tuple, Optional, Dict
+from sklearn.preprocessing import LabelEncoder
 
 # Define feature columns
 NUMERIC_COLUMNS = [
@@ -75,7 +76,13 @@ def preprocess_training_data(df: pd.DataFrame, preprocessor_path: str, mapping_p
     with open(preprocessor_path, 'wb') as file:
         pickle.dump(preprocessor, file)
     
-    return X_processed, y.to_numpy()
+    # Encode target
+    le = LabelEncoder()
+    y_encoded = le.fit_transform(y)
+    with open(mapping_path.replace('mapping.pkl', 'label_mapping.pkl'), 'wb') as file:
+        pickle.dump(le, file)  # Save label encoder for later use
+    
+    return X_processed, y_encoded
 
 def preprocess_prediction_data(df: pd.DataFrame, preprocessor_path: str) -> Optional[np.ndarray]:
     if df.empty:

@@ -4,48 +4,31 @@ import '../assets/css/retraining/retrainingPage.css';
 import { Link } from 'react-router-dom';
 
 const Retraining = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [isRetraining, setIsRetraining] = useState(false);
-  const [uploadMessage, setUploadMessage] = useState('');
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    setSelectedFile(file);
-    setUploadMessage('');
-    if (file) {
-      console.log('File selected for retraining:', file.name);
-    }
-  };
+    const [isRetraining, setIsRetraining] = useState(false);
+    const [message, setMessage] = useState('');
 
   const handleRetrain = async () => {
-    if (!selectedFile) {
-      alert('Please upload a file before retraining.');
-      return;
-    }
-
     setIsRetraining(true);
-    setUploadMessage('Uploading file and retraining the model...');
-
-    const formData = new FormData();
-    formData.append("x_file", selectedFile);
-    formData.append("replace_existing", true);
-
+    setMessage("Retraining the model...");
+  
     try {
       const response = await fetch("http://localhost:8000/retrain", {
         method: "POST",
-        body: formData,
+        headers: {
+            "Content-Type": "application/json",
+        },
       });
-
+  
       const data = await response.json();
       if (response.ok) {
-        setUploadMessage(`Retraining completed: ${data.records_inserted} records added.`);
+        setMessage(`Retraining completed: ${data.message}`);
       } else {
-        throw new Error(data.detail || "Upload failed");
+        throw new Error(data.detail || "Retrain failed");
       }
     } catch (error) {
-      setUploadMessage(`Error: ${error.message}`);
+      setMessage(`Error: ${error.message}`);
     } finally {
-      setIsRetraining(false);
+        setIsRetraining(false);
     }
   };
 
@@ -64,24 +47,9 @@ const Retraining = () => {
 
       <main className="main-content">
         <h2>Upload Dataset to Retrain</h2>
-        <p>Improve predictions by retraining the model with new data.</p>
+        <p>This will retrain the latest uploaded dataset.</p>
 
         <div className="retraining-section">
-          <div className="upload-area">
-            <label htmlFor="file-upload" className="upload-button">
-              Upload New Data
-            </label>
-            <input
-              id="file-upload"
-              type="file"
-              accept=".csv, .xlsx, .json"
-              onChange={handleFileChange}
-              style={{ display: 'none' }}
-            />
-            {selectedFile && (
-              <p className="file-info">Selected File: {selectedFile.name}</p>
-            )}
-          </div>
 
           <button
             className="retrain-button"
@@ -90,7 +58,7 @@ const Retraining = () => {
           >
             {isRetraining ? 'Retraining...' : 'Start Retraining'}
           </button>
-          {uploadMessage && <p className="upload-message">{uploadMessage}</p>}
+          {message && <p className="upload-message">{message}</p>}
         </div>
       </main>
     </div>

@@ -28,7 +28,7 @@
   transition: color 0.3s ease-in-out;
 }
 .data-upload-container .header h1 a:hover {
-  color: purple;
+  color: #AD49E1;
 }
 .data-upload-container .header nav {
   display: flex;

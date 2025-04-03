@@ -1,3 +1,4 @@
+from typing import Optional, Tuple
 import tensorflow as tf
 import numpy as np
 import os
@@ -6,7 +7,7 @@ import pickle
 import json
 from .preprocessing import preprocess_prediction_data, ALL_FEATURES
 
-def make_predictions(model_path, X_processed, save_path=None):
+def make_predictions(model_path: str, X_processed: np.ndarray, save_path: Optional[str] = None) -> Tuple[np.ndarray, np.ndarray]:
     """
     Make predictions using a trained model
     
@@ -20,24 +21,20 @@ def make_predictions(model_path, X_processed, save_path=None):
         predicted_classes: Predicted class indices
     """
     try:
-        # Check inputs
         if not os.path.exists(model_path):
             raise FileNotFoundError(f"Model file not found at {model_path}")
         if not isinstance(X_processed, np.ndarray):
             raise ValueError("X_processed must be a numpy array")
         
-        # Load model and predict
         loaded_model = tf.keras.models.load_model(model_path)
         probabilities = loaded_model.predict(X_processed)
         predicted_classes = np.argmax(probabilities, axis=1)
         
-        # Save predictions if path is provided
         if save_path:
             results = {
                 "probabilities": probabilities.tolist(),
                 "predicted_classes": predicted_classes.tolist()
             }
-            
             os.makedirs(os.path.dirname(save_path), exist_ok=True)
             with open(save_path, 'w') as f:
                 json.dump(results, f)
@@ -55,13 +52,13 @@ def make_predictions(model_path, X_processed, save_path=None):
         print(f"Error in make_predictions: {e}")
         raise
 
-def predict_from_raw_data(data, preprocessor_path, model_path, save_path=None):
+def predict_from_raw_data(data, preprocessor=None, model_path: str = None, save_path: Optional[str] = None) -> Tuple[np.ndarray, np.ndarray]:
     """
     Preprocess raw data and make predictions
     
     Args:
         data: Raw data as a dictionary or pandas DataFrame
-        preprocessor_path: Path to the saved preprocessor
+        preprocessor: Preprocessor object (optional, if None, assumes data is preprocessed)
         model_path: Path to the saved model
         save_path: Path to save predictions (optional)
         
@@ -70,24 +67,22 @@ def predict_from_raw_data(data, preprocessor_path, model_path, save_path=None):
         predicted_classes: Predicted class indices
     """
     try:
-        # Convert dictionary to DataFrame if needed
         if isinstance(data, dict):
-            # Handle single instance
             df = pd.DataFrame([data])
         elif isinstance(data, pd.DataFrame):
             df = data
         else:
             raise ValueError("Data must be a dictionary or pandas DataFrame")
         
-        # Ensure all required columns are present
         missing_cols = set(ALL_FEATURES) - set(df.columns)
         if missing_cols:
             raise ValueError(f"Missing columns: {missing_cols}")
         
-        # Preprocess the data
-        X_processed = preprocess_prediction_data(df, preprocessor_path)
+        if preprocessor is not None:
+            X_processed = preprocessor.transform(df)
+        else:
+            X_processed = df.to_numpy()  # Assume data is already preprocessed if no preprocessor
         
-        # Make predictions
         return make_predictions(model_path, X_processed, save_path)
     
     except Exception as e:
