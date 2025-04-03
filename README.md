@@ -14,7 +14,34 @@ This project demonstrates the deployment of a machine learning model through a F
 
 ## Project Structure
 
-ml-model-api/ │ ├── README.md # Project documentation ├── app.py # FastAPI application entry point ├── Dockerfile # Docker container definition ├── docker-compose.yml # Docker Compose configuration ├── requirements.txt # Python dependencies │ ├── src/ # Source code │ ├── preprocessing.py # Data preprocessing functions │ ├── model.py # Model definition and training │ ├── prediction.py # Prediction functions │ ├── data/ # Data storage │ ├── train/ # Training data │ ├── test/ # Test data │ ├── predictions/ # Stored predictions │ ├── models/ # Model storage │ ├── visualizations/ # Model visualizations │ └── locust/ # Load testing └── locustfile.py # Locust test configuration
+nganiriza/
+│
+├── README.md
+│
+├── notebook/
+│   └── Nganiriza.ipynb
+│
+├── src/
+│   ├── api/
+|   ├── preprocessing.py
+│   ├── model.py
+│   └── prediction.py
+│
+├── data/
+│   ├── train/
+│   └── test/
+│
+└── models/
+|    ├── nn_model_5.h5
+|    ├── static/
+|    └── uploads/
+|
+|
+|__ app.py                        # Contains the endpoints
+|
+|
+|
+|__ nganiriza_frontend            # The react app for the frontend
 
 
 
@@ -55,6 +82,14 @@ ml-model-api/ │ ├── README.md # Project documentation ├── app.py #
    ```
    uvicorn app:app --reload --host 0.0.0.0 --port 8000
    ```
+
+NB: The .env file that didn't get pushed contains these
+ATLAS_USER=emunezero
+ATLAS_PASSWORD=qxSTjxixi1SbVmLf
+ATLAS_DB=TeenPregnancyDB
+ATLAS_CLUSTER=summative.bjbmaxp
+BACKEND_URL=http://localhost:8000
+
 
 ### The deployed links
 
