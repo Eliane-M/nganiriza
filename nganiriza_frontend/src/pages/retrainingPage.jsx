@@ -12,7 +12,7 @@ const Retraining = () => {
     setMessage("Retraining the model...");
   
     try {
-      const response = await fetch("https://nganiriza.onrender.com/retrain", {
+      const response = await fetch("http://localhost:8000/retrain", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

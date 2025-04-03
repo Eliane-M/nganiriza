@@ -75,7 +75,7 @@ const UserInfoPage = () => {
     };
 
     try {
-      const response = await fetch('https://nganiriza.onrender.com/predict', {
+      const response = await fetch('http://localhost:8000/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
