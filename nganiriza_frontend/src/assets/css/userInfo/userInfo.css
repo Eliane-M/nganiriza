@@ -1,0 +1,130 @@
+.user-info-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  color: white;
+}
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.header h1 a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+.header h1 a:hover {
+  color: #AD49E1;
+}
+.header nav {
+  display: flex;
+  gap: 20px;
+  padding-inline-end: 3rem;
+}
+.header nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease-in-out;
+}
+.header nav a:hover {
+  color: #562770;
+}
+
+.form-wrapper {
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  margin-top: 100px;
+}
+.form-wrapper .title {
+  font-size: 2.5rem;
+  color: #AD49E1;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.form-wrapper h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.form-wrapper p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.user-info-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.user-info-form .form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.user-info-form .form-group label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.user-info-form .form-group input,
+.user-info-form .form-group select {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.user-info-form .form-group input:focus,
+.user-info-form .form-group select:focus {
+  border-color: #ff7f50;
+}
+.user-info-form .form-group input::-moz-placeholder {
+  color: #aaa;
+}
+.user-info-form .form-group input::placeholder {
+  color: #aaa;
+}
+
+.submit-btn {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  background-color: #AD49E1;
+  color: #fff;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 16px;
+  width: 16rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.submit-btn:hover {
+  background-color: #9723d4;
+}/*# sourceMappingURL=userInfo.css.map */

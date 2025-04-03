@@ -1,0 +1,146 @@
+// Retraining.scss
+.retraining-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    // background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+    color: #333;
+  
+    .header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        color: black;
+    
+        h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+    
+            a {
+                color: black;
+                text-decoration: none;
+                transition: color 0.3s ease-in-out;
+    
+                &:hover {
+                    color: purple; // Changes title to purple on hover
+                }
+            }
+        }
+    
+        nav {
+            display: flex;
+            gap: 20px;
+            padding-inline-end: 3rem;
+    
+            a {
+                color: black;
+                text-decoration: none;
+                font-size: 1.2rem;
+                transition: color 0.3s ease-in-out;
+    
+                &:hover {
+                    color: #662b86;
+                }
+            }
+        }
+    }
+  
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+  
+      h2 {
+        font-size: 34px;
+        font-weight: 600;
+        color: #AD49E1;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        font-size: 18px;
+        color: #666;
+        max-width: 600px;
+        margin-bottom: 40px;
+      }
+  
+      .retraining-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+  
+        .upload-area {
+          .upload-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #AD49E1;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+  
+            &:hover {
+              background-color: #AD49E1;
+              transform: translateY(-2px);
+            }
+          }
+  
+          .file-info {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #AD49E1;
+          }
+        }
+  
+        .retrain-button {
+          padding: 12px 40px;
+          background-color: #692c89;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 500;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.2s ease;
+  
+          &:hover {
+            background-color: #54236e;
+            transform: translateY(-2px);
+          }
+  
+          &:disabled {
+            background-color: #b0bec5;
+            cursor: not-allowed;
+            transform: none;
+          }
+        }
+      }
+    }
+  
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background-color: #ffffff;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  
+      p {
+        margin: 0;
+        font-size: 14px;
+        color: #666;
+      }
+    }
+  }

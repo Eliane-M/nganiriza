@@ -1,0 +1,35 @@
+2025-04-03 00:23:26,083 - __main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 00:23:26,083 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+2025-04-03 00:24:19,873 - __main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 00:24:27,734 - __mp_main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 00:24:27,904 - app - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 00:53:01,161 - __mp_main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 00:53:01,313 - app - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 00:53:51,067 - __main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 00:53:59,163 - __mp_main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 00:53:59,441 - app - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 01:43:10,338 - __mp_main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 01:43:10,474 - app - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 01:44:07,903 - __mp_main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 01:44:08,016 - app - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 01:44:46,943 - __mp_main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 01:44:47,296 - app - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 01:56:55,121 - app - ERROR - Prediction error: 500: Preprocessor not initialized. Please retrain first.
+2025-04-03 03:02:28,426 - __mp_main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 03:02:28,554 - app - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 03:09:17,209 - __mp_main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 03:09:17,320 - app - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 03:16:33,456 - app - INFO - CSV data inserted into MongoDB: 1000 records
+2025-04-03 03:19:43,505 - app - ERROR - Prediction error: 500: Preprocessor not initialized. Please retrain first.
+2025-04-03 04:10:52,598 - __mp_main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 04:10:52,720 - app - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 04:12:10,865 - __mp_main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 04:12:10,981 - app - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 04:12:52,373 - __mp_main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 04:12:52,642 - app - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 04:17:52,650 - __mp_main__ - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
+2025-04-03 04:17:53,016 - app - WARNING - Preprocessor not found at path: c:\Users\user\models\preprocessor.pkl
