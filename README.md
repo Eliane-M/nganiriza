@@ -97,5 +97,5 @@ The endpoints created are the following:
   - /retrain
   - visualizations
 
-This is a link to the [Demo Video]()
+This is a link to the [Demo Video](https://youtu.be/h_D39599LxU)
    
