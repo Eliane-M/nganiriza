@@ -8,8 +8,6 @@ This project demonstrates the deployment of a machine learning model through a F
 - **Data upload**: Upload new training data to enhance the model  
 - **Model retraining**: Trigger retraining with custom parameters  
 - **Visualizations**: View model performance through various visualizations  
-- **Performance monitoring**: Track API performance metrics  
-- **Load testing**: Simulate high traffic with Locust  
 - **Containerization**: Docker support for easy deployment  
 
 ## Project Structure
