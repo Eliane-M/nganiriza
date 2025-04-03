@@ -19,7 +19,7 @@ const VisualizationsPage = () => {
     setError(null);
 
     try {
-      const response = await fetch(`http://localhost:8000/visualizations/${plotType}`, {
+      const response = await fetch(`https://nganiriza.onrender.com/visualizations/${plotType}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
